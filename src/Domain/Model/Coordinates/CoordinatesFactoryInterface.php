@@ -4,5 +4,5 @@ namespace App\Domain\Model\Coordinates;
 
 interface CoordinatesFactoryInterface
 {
-    public function create(float $xCoordinate, float $yCoordinate): Coordinates;
+    public function create(float $latitude, float $longitude): Coordinates;
 }

@@ -25,14 +25,14 @@ class CityFactory implements CityFactoryInterface
 
     /**
      * @param string $name
-     * @param string $xCoordinate
-     * @param string $yCoordinate
+     * @param string $latitude
+     * @param string $longitude
      *
      * @return City
      */
-    public function create(string $name, string $xCoordinate, string $yCoordinate): City
+    public function create(string $name, string $latitude, string $longitude): City
     {
-        $coordinates = $this->coordinatesFactory->create((float) $xCoordinate, (float) $yCoordinate);
+        $coordinates = $this->coordinatesFactory->create((float) $latitude, (float) $longitude);
 
         return new City($name, $coordinates);
     }

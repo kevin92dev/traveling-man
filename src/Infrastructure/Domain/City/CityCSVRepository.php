@@ -40,13 +40,13 @@ class CityCSVRepository implements CityRepositoryInterface
         if (($manager = fopen($filePath, "r")) !== FALSE) {
             while (($data = fgetcsv($manager, 1000, ';')) !== FALSE) {
                 $name = $data[0];
-                $xCoordinate = $data[1];
-                $yCoordinate = $data[2];
+                $latitude = $data[1];
+                $longitude = $data[2];
 
                 $city = $this->cityFactory->create(
                     $name,
-                    $xCoordinate,
-                    $yCoordinate
+                    $latitude,
+                    $longitude
                 );
 
                 $cities[] = $city;

@@ -16,4 +16,5 @@ Optional:
 To develop this feature, some assumptions have been made:
 - Input files has to be on /public folder
 - The input file has to be the following format:
+
     ```name;x_coordinate;y_coordinate```

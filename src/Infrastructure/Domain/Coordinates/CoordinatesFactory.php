@@ -7,8 +7,8 @@ use App\Domain\Model\Coordinates\CoordinatesFactoryInterface;
 
 class CoordinatesFactory implements CoordinatesFactoryInterface
 {
-    public function create(float $xCoordinate, float $yCoordinate): Coordinates
+    public function create(float $latitude, float $longitude): Coordinates
     {
-        return new Coordinates($xCoordinate, $yCoordinate);
+        return new Coordinates($latitude, $longitude);
     }
 }

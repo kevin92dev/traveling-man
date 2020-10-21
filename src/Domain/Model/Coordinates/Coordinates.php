@@ -12,38 +12,38 @@ class Coordinates
     /**
      * @var float
      */
-    private $xCoordinate;
+    private $latitude;
 
     /**
      * @var float
      */
-    private $yCoordinate;
+    private $longitude;
 
     /**
      * Coordinates constructor.
      *
-     * @param float $xCoordinate
-     * @param float $yCoordinate
+     * @param float $latitude
+     * @param float $longitude
      */
-    public function __construct(float $xCoordinate, float $yCoordinate)
+    public function __construct(float $latitude, float $longitude)
     {
-        $this->xCoordinate = $xCoordinate;
-        $this->yCoordinate = $yCoordinate;
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
     }
 
     /**
      * @return float
      */
-    public function getXCoordinate(): ?float
+    public function getLatitude(): ?float
     {
-        return $this->xCoordinate;
+        return $this->latitude;
     }
 
     /**
      * @return float
      */
-    public function getYCoordinate(): ?float
+    public function getLongitude(): ?float
     {
-        return $this->yCoordinate;
+        return $this->longitude;
     }
 }
