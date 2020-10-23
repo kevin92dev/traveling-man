@@ -6,3 +6,6 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 
 COPY . /var/www/symfony
 WORKDIR /var/www/symfony
+
+CMD [ "composer", "install" ]
+CMD [ "bin/phpunit" ]
