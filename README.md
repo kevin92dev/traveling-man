@@ -12,12 +12,12 @@ For solve this problem I used the nearest neighbour algorithm strategy.
 
 ## Usage
 
-```docker run -it --name traveling_man-run traveling_man:latest```
+```docker run -it traveling_man:latest bin/console app:get-traveling-man-shortest-path```
 
 ## Test
 For execute the test suite execute:
 
-```php bin/phpunit```
+```docker run -it traveling_man:latest bin/phpunit```
 
 ## FAQ
 To develop this feature, some assumptions have been made:
