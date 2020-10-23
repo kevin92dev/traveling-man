@@ -3,14 +3,20 @@
 For solve this problem I used the nearest neighbour algorithm strategy.
 
 ## Install
-(Pending)
+
+```git clone https://github.com/kevin92dev/traveling-man.git```
+
+```cd traveling-man```
+
+```docker build -t traveling_man .```
 
 ## Usage
 
-```php bin/console app:get-traveling-man-shortest-path```
+```docker run -it --name traveling_man-run traveling_man:latest```
 
 ## Test
 For execute the test suite execute:
+
 ```php bin/phpunit```
 
 ## FAQ
