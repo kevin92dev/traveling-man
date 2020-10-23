@@ -8,7 +8,7 @@ For solve this problem I used the nearest neighbour algorithm strategy.
 
 ```cd traveling-man```
 
-```composer install```
+```composer install --dev```
 
 ```docker build -t traveling_man .```
 
