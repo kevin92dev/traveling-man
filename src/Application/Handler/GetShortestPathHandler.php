@@ -2,9 +2,8 @@
 
 namespace App\Application\Handler;
 
-use App\Application\Command\GetShortestPathCommand;
 use App\Domain\Model\City\CityRepositoryInterface;
-use App\Domain\Service\City\CityService;
+use App\Domain\Service\Algorithm\AlgorithmInterface;
 
 class GetShortestPathHandler
 {
@@ -14,36 +13,33 @@ class GetShortestPathHandler
     private $cityRepository;
 
     /**
-     * @var CityService
+     * @var AlgorithmInterface
      */
-    private $cityService;
+    private $algorithm;
 
     /**
      * GetShortestPathHandler constructor.
      *
      * @param CityRepositoryInterface $cityRepository
-     * @param CityService $cityService
+     * @param AlgorithmInterface $algorithm
      */
-    public function __construct(CityRepositoryInterface $cityRepository, CityService $cityService)
-    {
+    public function __construct(
+        CityRepositoryInterface $cityRepository,
+        AlgorithmInterface $algorithm
+    ) {
         $this->cityRepository = $cityRepository;
-        $this->cityService = $cityService;
+        $this->algorithm = $algorithm;
     }
 
     /**
      * GetShortestPathHandler constructor.
      *
-     * @param GetShortestPathCommand $command
-     *
      * @return array
      */
-    public function handle(GetShortestPathCommand $command): array
+    public function handle(): array
     {
         $cities = $this->cityRepository->findAll();
 
-        echo $this->cityService->circleDistance($cities[0]->getCoordinates(), $cities[1]->getCoordinates());
-
-        //var_dump($cities[0]);
-        exit;
+        return $this->algorithm->getTour($cities);
     }
 }

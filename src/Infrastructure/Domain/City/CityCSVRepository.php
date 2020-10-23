@@ -7,8 +7,6 @@ use App\Domain\Model\City\CityRepositoryInterface;
 
 class CityCSVRepository implements CityRepositoryInterface
 {
-    const CITIES_FILE = 'cities.txt';
-
     /**
      * @var CityFactoryInterface
      */
@@ -20,22 +18,29 @@ class CityCSVRepository implements CityRepositoryInterface
     private $projectDir;
 
     /**
+     * @var string
+     */
+    private $importFile;
+
+    /**
      * ReadingCSVRepository constructor.
      *
      * @param CityFactoryInterface $cityFactory
      * @param $projectDir
+     * @param $importFile
      */
-    public function __construct(CityFactoryInterface $cityFactory, $projectDir)
+    public function __construct(CityFactoryInterface $cityFactory, $projectDir, $importFile)
     {
         $this->cityFactory = $cityFactory;
         $this->projectDir = $projectDir;
+        $this->importFile = $importFile;
     }
 
     public function findAll(): array
     {
         $cities = [];
 
-        $filePath = $this->projectDir.'/public/'.self::CITIES_FILE;
+        $filePath = $this->projectDir.'/public/'.$this->importFile;
 
         if (($manager = fopen($filePath, "r")) !== FALSE) {
             while (($data = fgetcsv($manager, 1000, ';')) !== FALSE) {
